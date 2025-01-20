@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Bonitinha</title>
+    <title>Calculadora</title>
     <style>
         /* Estilização Geral */
         body {
@@ -113,7 +113,7 @@
             const num1 = parseFloat(document.getElementById("num1").value);
             const num2 = parseFloat(document.getElementById("num2").value);
             const operacao = document.getElementById("operacao").value;
-            let resultado;
+            let resultado = "";
 
             // Verificar se os valores são válidos
             if (isNaN(num1) || isNaN(num2)) {
@@ -122,19 +122,19 @@
                 // Realizar a operação selecionada
                 switch (operacao) {
                     case "soma":
-                        resultado = Resultado: ${num1 + num2};
+                        resultado = `Resultado: ${num1 + num2}`;
                         break;
                     case "subtracao":
-                        resultado = Resultado: ${num1 - num2};
+                        resultado = `Resultado: ${num1 - num2}`;
                         break;
                     case "multiplicacao":
-                        resultado = Resultado: ${num1 * num2};
+                        resultado = `Resultado: ${num1 * num2}`;
                         break;
                     case "divisao":
                         if (num2 === 0) {
                             resultado = "Erro: Divisão por zero não é permitida.";
                         } else {
-                            resultado = Resultado: ${num1 / num2};
+                            resultado = `Resultado: ${num1 / num2}`;
                         }
                         break;
                     default:
@@ -143,7 +143,7 @@
             }
 
             // Exibir o resultado na tela
-            document.getElementById("resultado").innerText = resultado;
+            document.getElementById("resultado").innerHTML = resultado;
         }
     </script>
 </body>
