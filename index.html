@@ -1,21 +1,150 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-<title>Olá mundo!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Bonitinha</title>
+    <style>
+        /* Estilização Geral */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #9face6, #74ebd5);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            input, select, button {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Calculadora Bonitinha</h1>
+        <div class="input-group">
+            <label for="num1">Número 1:</label>
+            <input type="number" id="num1" placeholder="Digite o primeiro número">
+        </div>
+        <div class="input-group">
+            <label for="num2">Número 2:</label>
+            <input type="number" id="num2" placeholder="Digite o segundo número">
+        </div>
+        <div class="input-group">
+            <label for="operacao">Operação:</label>
+            <select id="operacao">
+                <option value="soma">Soma</option>
+                <option value="subtracao">Subtração</option>
+                <option value="multiplicacao">Multiplicação</option>
+                <option value="divisao">Divisão</option>
+            </select>
+        </div>
+        <button onclick="calcular()">Calcular</button>
+        <div class="result" id="resultado"></div>
+    </div>
 
-<h2>HTML Forms</h2>
+    <script>
+        function calcular() {
+            // Obter os valores dos inputs
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const operacao = document.getElementById("operacao").value;
+            let resultado;
 
-<form action="/action_page.php">
-  <label for="fname">Primeiro nome:</label><br>
-  <input type="text" id="fname" name="fname" value="Ana Laura"><br>
-  <label for="lname">Sobrenome:</label><br>
-  <input type="text" id="lname" name="lname" value="Melo"><br><br>
-  <input type="submit" value="Confirmar">
-</form>
+            // Verificar se os valores são válidos
+            if (isNaN(num1) || isNaN(num2)) {
+                resultado = "Por favor, insira números válidos.";
+            } else {
+                // Realizar a operação selecionada
+                switch (operacao) {
+                    case "soma":
+                        resultado = Resultado: ${num1 + num2};
+                        break;
+                    case "subtracao":
+                        resultado = Resultado: ${num1 - num2};
+                        break;
+                    case "multiplicacao":
+                        resultado = Resultado: ${num1 * num2};
+                        break;
+                    case "divisao":
+                        if (num2 === 0) {
+                            resultado = "Erro: Divisão por zero não é permitida.";
+                        } else {
+                            resultado = Resultado: ${num1 / num2};
+                        }
+                        break;
+                    default:
+                        resultado = "Operação inválida.";
+                }
+            }
 
-<p>If you click the "Submit" button, the form-data will be sent to a page called"/action_page.php".</p>
-
+            // Exibir o resultado na tela
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
 </body>
 </html>
