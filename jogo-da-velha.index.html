@@ -146,12 +146,12 @@
             if (gameBoard[cellId] === '' && !gameOver) {
                 // Preenche a célula com o símbolo do jogador atual
                 gameBoard[cellId] = currentPlayer;
-                document.getElementById(cell-${cellId}).textContent = currentPlayer;
-                document.getElementById(cell-${cellId}).classList.add('taken');
+                document.getElementById(`cell-${cellId}`).textContent = currentPlayer;
+                document.getElementById(`cell-${cellId}`).classList.add('taken');
                 
                 // Verifica se alguém ganhou
                 if (verificarVitoria()) {
-                    message.textContent = Jogador ${currentPlayer} ganhou!;
+                    message.textContent = `Jogador ${currentPlayer} ganhou!`;
                     document.querySelectorAll('.cell').forEach(cell => {
                         cell.classList.add('shake');
                     });
@@ -161,7 +161,7 @@
 
                 // Alterna para o outro jogador
                 currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-                message.textContent = Agora é a vez do Jogador ${currentPlayer};
+                message.textContent = `Agora é a vez do Jogador ${currentPlayer}`;
             }
         }
 
@@ -187,7 +187,7 @@
             gameBoard = ['', '', '', '', '', '', '', '', ''];
             gameOver = false;
             currentPlayer = 'X';
-            message.textContent = Jogador 1 (X) é o primeiro a jogar!;
+            message.textContent = 'Jogador 1 (X) é o primeiro a jogar!';
 
             // Limpar a tela
             const cells = document.querySelectorAll('.cell');
